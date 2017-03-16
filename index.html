@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" width="16" height="16">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/css-reset.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <script src="js/jquery-3.1.1.slim.min.js"></script>
+  </head>
+  <body>
+    <script>
+	  // get data from PHP with AJAX using jQuery
+	  function getData() {
+	    var value = "something";
+		$.post("php/some-file.php", {
+	      'some_var' : value
+		}).done(function(data) {
+	      // parse JSON array
+		  var resultArray = JSON.parse(data);
+		  // check if query succeeded or failed
+		  if (resultArray["status"] === "success") {
+		    // query was successful, use results
+			var resLen = resultArray["query_results"].length;
+		  }
+		  else {
+		    // query failed  
+		  }
+		});
+    </script>
+  </body>
+ </html>
